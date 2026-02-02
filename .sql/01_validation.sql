@@ -32,3 +32,15 @@ WHERE 휴원시작일자 is not NULL
 	and 휴원시작일자 <=20260202
 	and (휴원종료일자 is null or 휴원종료일자 >= 20260202);
 
+--Make a view organized with only the current active academies
+drop view if exists vw_active_academy;
+
+create view vw_active_academy as 
+select *
+from academy_info
+where not (
+	휴원시작일자 is not null
+	and 휴원시작일자 <= 20260202
+	and (휴원종료일자 is null or 휴원종료일자 >= 20260202)
+	);
+
