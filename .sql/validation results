@@ -27,4 +27,21 @@
 23	전화번호	TEXT	0		0
 24	수정일자	INTEGER	0		0
 
+--number of rows
+137562
+
+--find the null value in major column
+name 1
+sido 0
+enroll 0
+subject 3
+
+-- cheeck currently not operate academy status
+count(*): 0
+
+-- To find out the number of current non-running academies.
+num_휴원: 118
+-> It means 118 of academies are not working 
+
+
 
