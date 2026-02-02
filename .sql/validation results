@@ -1,0 +1,30 @@
+--validation results are here
+
+--
+0	시도교육청코드	TEXT	0		0
+1	시도교육청명	TEXT	0		0
+2	행정구역명	TEXT	0		0
+3	학원교습소명	TEXT	0		0
+4	학원지정번호	INTEGER	0		0
+5	학원명	TEXT	0		0
+6	개설일자	INTEGER	0		0
+7	등록일자	INTEGER	0		0
+8	등록상태명	TEXT	0		0
+9	휴원시작일자	TEXT	0		0
+10	휴원종료일자	TEXT	0		0
+11	정원합계	INTEGER	0		0
+12	일시수용능력인원합계	INTEGER	0		0
+13	분야명	TEXT	0		0
+14	교습계열명	TEXT	0		0
+15	교습과정목록명	TEXT	0		0
+16	교습과정명	TEXT	0		0
+17	인당수강료	TEXT	0		0
+18	수강료공개여부	TEXT	0		0
+19	기숙사학원여부	TEXT	0		0
+20	도로명주소	TEXT	0		0
+21	도로명상세주소	TEXT	0		0
+22	도로명우편번호	INTEGER	0		0
+23	전화번호	TEXT	0		0
+24	수정일자	INTEGER	0		0
+
+
