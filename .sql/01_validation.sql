@@ -44,3 +44,62 @@ where not (
 	and (휴원종료일자 is null or 휴원종료일자 >= 20260202)
 	);
 
+--Filter the academies to find out english-related
+drop view if exists vw_en_academy_v1;
+
+create view vw_en_academy_v1 as 
+SELECT
+	*
+from vw_active_academy
+WHERE (
+	coalesce(학원명,'') like '%영어%'
+	or coalesce(학원명,'') like '%어학%'
+	or coalesce(학원명,'') like '%토익%'
+	or coalesce(학원명,'') like '%TOEIC%'
+	or coalesce(학원명,'') like '%토플%'
+	or coalesce(학원명,'') like '%TOEFL%'
+	or coalesce(학원명,'') like '%아이엘츠%'
+	or coalesce(학원명,'') like '%IELTS%'
+	or coalesce(학원명,'') like '%회화%'
+	or coalesce(분야명,'') like '%영어%'
+	or coalesce(분야명,'') like '%어학%'
+	or coalesce(분야명,'') like '%외국어%'
+	)
+AND NOT (
+	coalesce(학원명,'') LIKE '%중국어%'
+	OR coalesce(학원명,'') LIKE '%일본어%'
+	OR coalesce(학원명,'') LIKE '%국어%'
+	OR coalesce(학원명,'') LIKE '%독일어%'
+	OR coalesce(학원명,'') LIKE '%프랑스어%'
+	OR coalesce(학원명,'') LIKE '%스페인어%'
+	OR coalesce(학원명,'') LIKE '%러시아어%'
+	OR coalesce(분야명,'') LIKE '%독일어%'
+	OR coalesce(분야명,'') LIKE '%스페인어어%'
+	OR coalesce(분야명,'') LIKE '%프랑스어%'
+	OR coalesce(분야명,'') LIKE '%러시아어%'
+	OR coalesce(분야명,'') LIKE '%중국어%'
+	OR coalesce(분야명,'') LIKE '%일본어%'
+	);
+
+
+--Merge academy_info table and population views
+drop view if exists vw_academy_pop;
+
+create view vw_academy_pop as 
+SELECT
+	v.*,
+	a.total_2059,
+	a.total_male,
+	a.total_female,
+	a.domestic_2059,
+	a.domestic_male,
+	a.domestic_female
+from vw_en_academy_v1 as v
+left join adult_2059_by_region as a
+	on v.'region_key:1' = a.region_key;
+
+SELECT
+	count(*),
+	sum(case when total_2059 is null then 1 else 0 end) as unmached_rows
+from vw_academy_pop;
+
