@@ -7,15 +7,20 @@ This repository contains the following folders
 
 ### /data
 Contains the raw data files for the English academy status projects
+
 -'adult_2059.csv' - raw population data
 
 ### /sqls
 Contains sql queries for data analysis;
+
 -'01.validations.sql' - Data validation queries for checking data quality
+
 -'02.analysis.sql' - Data analysis queries for kpi metrics
 
 ### /powerbi
+
 Contain powerbi dashboard file
 
 ### /screenshot
+
 Contain screenshots and visualizations from the Power BI dashboard
