@@ -1,26 +1,29 @@
 # English-academy-status-in-s.korea
-This project measures the geographic distribution of English private academy in South korea. Using administrative region and adult populations(Age: 20-59).
-It calculate the number of English academies and the supply density for each region.
+This project measures the geographic distribution of English private academy in South korea. Using administrative region and adult populations(Ages 20-59).
+It calculate :
+- the number of English academies by region
+- academy supply density per 10k adults
+
+## Repository structure
 
 ## project folders
 This repository contains the following folders
 
 ### /data
-Contains the raw data files for the English academy status projects
+Contains the raw data files for the English academy status
 
--'adult_2059.csv' - raw population data
+-'adult_2059.csv' - adult population data (ages 20-59)
 
 ### /sqls
-Contains sql queries for data analysis;
+SQL scripts
 
--'01.modeling.sql' - Data validation queries for checking data quality
-
--'02.analysis.sql' - Data analysis queries for kpi metrics
+-'01.modeling.sql' - veiw/table creation (academy filtering, population aggregation, joins)
+-'02.analysis.sql' - KPI and analysis queries (ranking, supply gap)
 
 ### /powerbi
 
-Contain powerbi dashboard file
+Power BI dashboard files
 
-### /screenshot
+### /screenshots
 
-Contain screenshots and visualizations from the Power BI dashboard
+Dashboard scrrenshots for the README
