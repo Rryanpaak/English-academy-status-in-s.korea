@@ -129,9 +129,22 @@ SELECT
 from vw_en_academy_v1 as v
 left join adult_2059_by_region as a
 	on v.'region_key:1' = a.region_key;
-
+-- check the rows that are not matched 
 SELECT
 	count(*),
 	sum(case when total_2059 is null then 1 else 0 end) as unmached_rows
 from vw_academy_pop;
+
+--Make a view that how many academies in a region per 10k adults
+drop view if exists academy_density_10k;
+
+create view academy_density_10k as
+SELECT
+	v.'region_key:1' as re_key,
+	max(v.total_2059) as total_2059,
+	count(*) as academy_num,
+	round(10000.0 * count(*) / nullif(max(v.total_2059),0),4) as academy_per_10k
+from vw_academy_pop as v
+group by v.'region_key:1'
+
 
