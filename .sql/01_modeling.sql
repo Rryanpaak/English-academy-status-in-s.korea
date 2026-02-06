@@ -1,4 +1,4 @@
---validation using SQL
+--modeling using SQL
 
 --To know all the types of columns 
 pragma table_info(academy_info);
@@ -81,6 +81,38 @@ AND NOT (
 	OR coalesce(분야명,'') LIKE '%일본어%'
 	);
 
+--I found the better way to filter out
+drop view if exists vw_en_academy_v1;
+
+create view vw_en_academy_v1 as
+SELECT
+	*
+from vw_active_academy
+where (
+	(학원명 is not null and (
+		학원명 like '%영어%'
+		or 학원명 like '%토익%'
+		or 학원명 like '%토플%'
+		or 학원명 like '%토스%'
+		or 학원명 like '%회화%'
+		OR 학원명 LIKE '%어학%'
+		))
+	or (분야명 is not null and (
+		분야명 like '%영어%'
+		or 분야명 like '%회화%'
+		OR 분야명 LIKE '%국제화%'
+	))
+	and NOT (
+		(학원명 is not null and (
+			학원명 like '%국어%' or 학원명 like '%수학%' or 학원명 like '%과학%' or 학원명 like '%사회%' or 학원명 like '%논술%'
+			or 학원명 like '%미술%' or 학원명 like '%입시%' or 학원명 like '%음악%' or 학원명 like '%피아노%' or 학원명 like '%일본어%'
+			or 학원명 like '%중국어%' or 학원명 like '%독일어%' or 학원명 like '%프랑스어%' or 학원명 like '%스페인어%' or 학원명 like '%러시아어%'))
+		or (분야명 is not null and (
+		 분야명 like '%국어%' or 분야명 like '%수학%' or 분야명 like '%과학%' or 분야명 like '%사회%' or 분야명 like '%논술%'
+			or 분야명 like '%미술%' or 분야명 like '%입시%' or 분야명 like '%음악%' or 분야명 like '%피아노%' or 분야명 like '%일본어%'
+			or 분야명 like '%중국어%' or 분야명 like '%독일어%' or 분야명 like '%프랑스어%' or 분야명 like '%스페인어%' or 분야명 like '%러시아어%'
+			OR 분야명 LIKE '%직업기술%'))
+			));
 
 --Merge academy_info table and population views
 drop view if exists vw_academy_pop;
