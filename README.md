@@ -13,7 +13,7 @@ Contains the raw data files for the English academy status projects
 ### /sqls
 Contains sql queries for data analysis;
 
--'01.validations.sql' - Data validation queries for checking data quality
+-'01.modeling.sql' - Data validation queries for checking data quality
 
 -'02.analysis.sql' - Data analysis queries for kpi metrics
 
