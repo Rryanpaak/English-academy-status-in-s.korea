@@ -27,3 +27,31 @@ Power BI dashboard files
 ### /screenshots
 
 Dashboard scrrenshots for the README
+
+---
+
+# /gyeonggido-en-academy-supply (Korea -> Gyeonggi Phase 2)
+
+## /overview
+goal:
+output: 
+
+## /tech stack
+data:
+sql:
+powerbi:
+
+## /2)data
+
+### /academy data
+data source:
+key fields used: 
+
+
+### /population data
+
+### /sqls
+
+### /powerbi
+
+### /screenshots
