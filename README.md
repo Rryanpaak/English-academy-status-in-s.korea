@@ -41,7 +41,7 @@ data:
 sql:
 powerbi:
 
-## /2)data
+## /data
 
 ### /academy data
 data source:
