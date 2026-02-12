@@ -47,11 +47,12 @@ powerbi: Interactive dashboard (cards, bar charts, scatter plots, drill-through)
 ## /data
 
 ### /academy data
-data source:
-key fields used: 
-
+data source: National Academy dataset From Kosis(KOrean Statistical Information Service), filtering academies only located in Gyeonggi-do.
+key fields used: 시도교육청명(Office of Education), 행정구역명(City/Country/District), 학원명(Academy Name), 분야명(Category), 도로명주소(Address), 도로명상세주소(Address details)
 
 ### /population data
+data source: National Academy dataset From Kosis(KOrean Statistical Information Service), filtering adults aged from 20-59
+key fields used: Region, total_2059
 
 ### /sqls
 
