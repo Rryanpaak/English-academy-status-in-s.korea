@@ -38,3 +38,25 @@ SELECT DISTINCT
 	region
 from gyunggi_2059
 
+
+--made a view merged two dataset
+drop view if exists gyeonggi_en_density_pop;
+
+create view gyeonggi_en_density_pop as
+	with academy_cnt as (
+		SELECT
+			trim(행정구역명) as si,
+			count(*) as num_aca
+		from gyunggi_en_academy
+		group by trim(행정구역명)
+)
+SELECT
+	g.region,
+	coalesce(num_aca,0) as num_academy,
+	g.population as pop_2059,
+	round(coalesce(a.num_aca,0) * 10000 / nullif(g.population,0),2) as aca_den_10k
+from gyunggi_2059 as g
+left join academy_cnt as a
+	on g.region = a.si;
+where g.region <> '합계'
+
