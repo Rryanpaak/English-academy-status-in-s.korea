@@ -31,15 +31,18 @@ Dashboard scrrenshots for the README
 ---
 
 # /gyeonggido-en-academy-supply (Korea -> Gyeonggi Phase 2)
-
+This analysis is focused on Gyeonggi-do, which has the largest population in South Korea. Figuring out how many academies are located, which cities has good opportunities for operating.
+It calculate:
+- The number of English academy in Gyeonggi
+- Academy supply density per 10k population
 ## /overview
 goal:
 output: 
 
 ## /tech stack
-data:
-sql:
-powerbi:
+data: Academy dataset: Private academy records (English academy filtered, aggregated by region) | Population dataset: Adult population(age 20-25) by region
+sql: Data cleaning, joins, the kpi views
+powerbi: Interactive dashboard (cards, bar charts, scatter plots, drill-through)
 
 ## /data
 
