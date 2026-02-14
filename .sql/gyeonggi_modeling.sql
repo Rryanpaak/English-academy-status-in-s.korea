@@ -60,3 +60,17 @@ left join academy_cnt as a
 	on g.region = a.si;
 where g.region <> '합계'
 
+--Before making drill through page, make a view that indicate more specific information
+drop view if exists gyeonggi_en_academy_status;
+
+create view gyeonggi_en_academy_status as
+	SELECT
+		행정구역명,
+		학원명,
+		수강료공개여부,
+		도로명주소,
+		도로명상세주소
+	from gyunggi_en_academy
+;
+
+--
