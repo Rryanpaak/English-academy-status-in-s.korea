@@ -31,3 +31,20 @@ cross join avg_density as a
 where a.average_density > g.aca_den_10k
 order by g.pop_2059 DESC
 limit 10;
+
+--To make sure the number of columns are same from the two different region column
+SELECT
+	g.region,
+	g.num_academy,
+	l.list_cnt,
+	(g.num_academy - l.list_cnt) as diff
+from gyeonggi_en_density_pop as g
+left join (
+	SELECT
+		행정구역명 as region,
+		count(*) as list_cnt
+	from gyeonggi_en_academy_status
+	group by 행정구역명
+) as l
+on g.region = l.region
+order by abs(diff) desc;
