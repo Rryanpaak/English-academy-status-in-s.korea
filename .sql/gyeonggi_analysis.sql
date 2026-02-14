@@ -11,7 +11,8 @@ order by pop_2059 desc, aca_den_10k ASC
 limit 5;
 
 
---find the average. After then, 
+--find the density average. After then, find out the distance between average density and density per 10k population
+--And then, multiply with the population, figure out the opportunity score
 with avg_density as (
 	SELECT
 		round(avg(aca_den_10k),2) as average_density
